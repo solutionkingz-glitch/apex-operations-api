@@ -159,8 +159,3 @@ describe('Operations API endpoints', () => {
     expect(mockQuery).not.toHaveBeenCalled();
   });
 });
-describe('Intentional CI failure demonstration', () => {
-  test('should fail intentionally to verify CI quality gate', () => {
-    expect(true).toBe(false);
-  });
-});
