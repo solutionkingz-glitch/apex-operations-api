@@ -20,7 +20,7 @@ app.use('/api/operations', operationsRouter);
 app.get('/', (req, res) => {
   res.status(200).json({
     application: 'Apex Operations API',
-    version: '1.0.0',
+    version: process.env.APP_VERSION || '1.0.0',
     status: 'running'
   });
 });

@@ -67,3 +67,18 @@ was restored, and the API returned to a ready state.
   container restarts.
 - Readiness endpoints help orchestrators identify services
   that should temporarily receive no traffic.
+## 8. Evidence and Verification
+
+The following observations confirmed the failure and recovery:
+
+| Check | Expected Result | Observed Result |
+|---|---|---|
+| Stop database container | Database unavailable | Confirmed |
+| API liveness | HTTP 200 | API remained running |
+| Database readiness during outage | HTTP 503 | Confirmed |
+| Restart database container | Database healthy | Confirmed |
+| Database readiness after recovery | HTTP 200 | Confirmed |
+
+The failure and recovery were verified using the API readiness endpoint and Docker Compose service status.
+
+This was a controlled local test using synthetic data, not a production incident.
